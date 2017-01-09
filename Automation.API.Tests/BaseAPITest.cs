@@ -24,8 +24,14 @@ namespace Automation.API.Tests
         protected async Task Run(Func<TestRunContext<T>, Task> execution)
         {
             var runContext = new TestRunContext<T>(Client);
-            await execution(runContext);
-            await TestCleanup(runContext);
+            try
+            {
+                await execution(runContext);
+            }
+            finally
+            {
+                await TestCleanup(runContext);
+            }
         }
 
         protected virtual async Task TestCleanup(TestRunContext testRunContext)
