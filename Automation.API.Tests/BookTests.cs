@@ -13,6 +13,7 @@ namespace Automation.API.Tests
     public class BookTests : BaseApiTest<BookPageObject>
     {
         [TestMethod]
+        [TestCategory("Nightly"), TestCategory("Get"), TestCategory("Book")]
         public async Task GetReturns404NotFoundGivenInvalidBookId()
         {
             await Run(async t =>
@@ -26,6 +27,7 @@ namespace Automation.API.Tests
         }
 
         [TestMethod]
+        [TestCategory("Nightly"), TestCategory("Get"), TestCategory("Book")]
         public async Task GetReturnsListOfBooksGivenDefaultAddress()
         {
             await Run(async t =>
@@ -42,6 +44,7 @@ namespace Automation.API.Tests
         }
 
         [TestMethod]
+        [TestCategory("Nightly"), TestCategory("Get"), TestCategory("Book")]
         public async Task GetRetunsCorrectBookGivenId()
         {
             await Run(async t =>
@@ -61,6 +64,7 @@ namespace Automation.API.Tests
         }
 
         [TestMethod]
+        [TestCategory("Nightly"), TestCategory("Post"), TestCategory("Book")]
         public async Task PostReturns400TitleRequiredGivenMissingBookTitle()
         {
             await Run(async t =>
@@ -74,6 +78,7 @@ namespace Automation.API.Tests
         }
 
         [TestMethod]
+        [TestCategory("Nightly"), TestCategory("Post"), TestCategory("Book")]
         public async Task PostReturnsNewlyInsertedBookGivenBook()
         {
             await Run(async t =>
@@ -94,6 +99,7 @@ namespace Automation.API.Tests
         }
 
         [TestMethod]
+        [TestCategory("Nightly"), TestCategory("Delete"), TestCategory("Book")]
         public async Task DeleteReturns404NotFoundGivenInvalidBookId()
         {
             await Run(async t =>
@@ -107,6 +113,7 @@ namespace Automation.API.Tests
         }
 
         [TestMethod]
+        [TestCategory("Nightly"), TestCategory("Delete"), TestCategory("Book")]
         public async Task DeleteReturnsNoContentGivenValidBookToDelete()
         {
             await Run(async t =>
