@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.API.Tests.PageOb
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8E727506-A84D-4A89-96FF-83A6301EDB44}"
 	ProjectSection(SolutionItems) = preProject
-		Parallel.runsettings = Parallel.runsettings
+		Parallel.testsettings = Parallel.testsettings
 	EndProjectSection
 EndProject
 Global
