@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Automation.API.Tests.PageObjects
+namespace Automation.API.Tests.Resources
 {
     public interface ICleanable
     {

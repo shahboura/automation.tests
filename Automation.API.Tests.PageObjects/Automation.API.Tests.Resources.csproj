@@ -7,8 +7,8 @@
     <ProjectGuid>{EEB6EC9D-9BB7-42F5-918D-D85531C985FB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Automation.API.Tests.PageObjects</RootNamespace>
-    <AssemblyName>Automation.API.Tests.PageObjects</AssemblyName>
+    <RootNamespace>Automation.API.Tests.Resources</RootNamespace>
+    <AssemblyName>Automation.API.Tests.Resources</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePageObject.cs" />
-    <Compile Include="BookPageObject.cs" />
+    <Compile Include="BaseResource.cs" />
+    <Compile Include="BookResource.cs" />
     <Compile Include="ICleanable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Automation.API.Tests.PageObjects
+namespace Automation.API.Tests.Resources
 {
-    public abstract class BasePageObject : ICleanable
+    public abstract class BaseResource : ICleanable
     {
         protected HttpClient Client;
         public abstract string ResourcePath { get; }
         protected readonly List<string> TestData = new List<string>();
 
-        protected BasePageObject(HttpClient client)
+        protected BaseResource(HttpClient client)
         {
             if (client == null)
             {
@@ -85,10 +85,10 @@ namespace Automation.API.Tests.PageObjects
         }
     }
 
-    public abstract class BasePageObject<T> : BasePageObject
+    public abstract class BaseResource<T> : BaseResource
         where T : class, new()
     {
-        protected BasePageObject(HttpClient client) : base(client)
+        protected BaseResource(HttpClient client) : base(client)
         {
         }
 

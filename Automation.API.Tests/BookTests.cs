@@ -3,14 +3,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Automation.API.Tests.PageObjects;
+using Automation.API.Tests.Resources;
 using Automation.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Automation.API.Tests
 {
     [TestClass]
-    public class BookTests : BaseApiTest<BookPageObject>
+    public class BookTests : BaseApiTest<BookResource>
     {
         [TestMethod]
         [TestCategory("Nightly"), TestCategory("Get"), TestCategory("Book")]
@@ -18,7 +18,7 @@ namespace Automation.API.Tests
         {
             await Run(async t =>
             {
-                var deleteResponse = await t.PageObject.GetByIdRaw("Dummy id");
+                var deleteResponse = await t.Resource.GetByIdRaw("Dummy id");
                 var message = await deleteResponse.Content.ReadAsStringAsync();
 
                 Assert.AreEqual("no book found", message);
@@ -32,7 +32,7 @@ namespace Automation.API.Tests
         {
             await Run(async t =>
             {
-                var response = await t.PageObject.GetRaw();
+                var response = await t.Resource.GetRaw();
 
                 Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
                 Assert.IsTrue(response.IsSuccessStatusCode);
@@ -49,10 +49,10 @@ namespace Automation.API.Tests
         {
             await Run(async t =>
             {
-                var books = await t.PageObject.Get();
+                var books = await t.Resource.Get();
                 var expectedBook = books.Last();
 
-                var response = await t.PageObject.GetByIdRaw(expectedBook.Id);
+                var response = await t.Resource.GetByIdRaw(expectedBook.Id);
                 Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
                 Assert.IsTrue(response.IsSuccessStatusCode);
 
@@ -69,7 +69,7 @@ namespace Automation.API.Tests
         {
             await Run(async t =>
             {
-                var response = await t.PageObject.PostRaw(new Book());
+                var response = await t.Resource.PostRaw(new Book());
                 Assert.AreEqual(HttpStatusCode.BadRequest, response.StatusCode);
 
                 var message = await response.Content.ReadAsStringAsync();
@@ -85,12 +85,12 @@ namespace Automation.API.Tests
             {
                 var book = GenerateTestBook();
 
-                var response = await t.PageObject.PostRaw(book);
+                var response = await t.Resource.PostRaw(book);
                 Assert.AreEqual(HttpStatusCode.Created, response.StatusCode);
                 Assert.IsTrue(response.IsSuccessStatusCode);
 
                 var createdBook = await response.Content.ReadAsAsync<Book>();
-                Assert.AreEqual($"{t.PageObject.ResourcePath}{createdBook.Id}"
+                Assert.AreEqual($"{t.Resource.ResourcePath}{createdBook.Id}"
                     , response.Headers.Location.AbsolutePath);
                 Assert.IsNotNull(createdBook.Id);
                 Assert.AreEqual(book.Author, createdBook.Author);
@@ -104,7 +104,7 @@ namespace Automation.API.Tests
         {
             await Run(async t =>
             {
-                var deleteResponse = await t.PageObject.Delete("Dummy id");
+                var deleteResponse = await t.Resource.Delete("Dummy id");
                 var message = await deleteResponse.Content.ReadAsStringAsync();
 
                 Assert.AreEqual("no book found", message);
@@ -119,8 +119,8 @@ namespace Automation.API.Tests
             await Run(async t =>
             {
                 var book = GenerateTestBook();
-                var createdBook = await t.PageObject.Post(book);
-                var deleteResponse = await t.PageObject.Delete(createdBook.Id);
+                var createdBook = await t.Resource.Post(book);
+                var deleteResponse = await t.Resource.Delete(createdBook.Id);
 
                 Assert.IsTrue(deleteResponse.IsSuccessStatusCode);
                 Assert.AreEqual(HttpStatusCode.NoContent, deleteResponse.StatusCode);

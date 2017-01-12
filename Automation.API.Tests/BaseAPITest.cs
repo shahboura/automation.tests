@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Automation.API.Tests.PageObjects;
+using Automation.API.Tests.Resources;
 
 namespace Automation.API.Tests
 {
     public abstract class BaseApiTest<T>
-        where T : BasePageObject
+        where T : BaseResource
     {
         protected readonly string BaseUrl = "http://localhost:9000/";
         protected HttpClient Client;

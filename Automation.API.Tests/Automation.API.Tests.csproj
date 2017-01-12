@@ -70,9 +70,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Automation.API.Tests.PageObjects\Automation.API.Tests.PageObjects.csproj">
+    <ProjectReference Include="..\Automation.API.Tests.PageObjects\Automation.API.Tests.Resources.csproj">
       <Project>{EEB6EC9D-9BB7-42F5-918D-D85531C985FB}</Project>
-      <Name>Automation.API.Tests.PageObjects</Name>
+      <Name>Automation.API.Tests.Resources</Name>
     </ProjectReference>
     <ProjectReference Include="..\Automation.Models\Automation.Models.csproj">
       <Project>{dd065ae1-0199-458c-bc1b-74739d3cb449}</Project>

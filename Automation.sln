@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.Models", "Automa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.API.Tests", "Automation.API.Tests\Automation.API.Tests.csproj", "{1FE8A580-90B6-41E6-AD93-C5107B39405E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.API.Tests.PageObjects", "Automation.API.Tests.PageObjects\Automation.API.Tests.PageObjects.csproj", "{EEB6EC9D-9BB7-42F5-918D-D85531C985FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automation.API.Tests.Resources", "Automation.API.Tests.PageObjects\Automation.API.Tests.Resources.csproj", "{EEB6EC9D-9BB7-42F5-918D-D85531C985FB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8E727506-A84D-4A89-96FF-83A6301EDB44}"
 	ProjectSection(SolutionItems) = preProject
