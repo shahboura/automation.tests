@@ -21,17 +21,17 @@ namespace Automation.API.Tests.Resources
             Client = client;
         }
 
-        public async Task<HttpResponseMessage> GetRaw()
+        public virtual async Task<HttpResponseMessage> GetRaw()
         {
             return await Get<HttpResponseMessage>(ResourcePath);
         }
 
-        public async Task<HttpResponseMessage> GetByIdRaw(string id)
+        public virtual async Task<HttpResponseMessage> GetByIdRaw(string id)
         {
             return await Client.GetAsync($"{ResourcePath}/{id}");
         }
 
-        public async Task<HttpResponseMessage> PostRaw<T>(T entity)
+        public virtual async Task<HttpResponseMessage> PostRaw<T>(T entity)
         {
             var response = await Client.PostAsJsonAsync(ResourcePath, entity);
 
@@ -43,7 +43,7 @@ namespace Automation.API.Tests.Resources
             return response;
         }
 
-        public async Task<HttpResponseMessage> Delete(string id)
+        public virtual async Task<HttpResponseMessage> Delete(string id)
         {
             TestData.Remove($"{ResourcePath}{id}");
             return await Client.DeleteAsync($"{ResourcePath}/{id}");
@@ -68,7 +68,7 @@ namespace Automation.API.Tests.Resources
             return await response.Content.ReadAsAsync<T>();
         }
 
-        public async Task Clean()
+        public virtual async Task Clean()
         {
             for (var i = TestData.Count - 1; i >= 0; i--)
             {
@@ -92,17 +92,17 @@ namespace Automation.API.Tests.Resources
         {
         }
 
-        public async Task<IEnumerable<T>> Get()
+        public virtual async Task<IEnumerable<T>> Get()
         {
             return await Get<IEnumerable<T>>(ResourcePath);
         }
 
-        public async Task<T> GetById(string id)
+        public virtual async Task<T> GetById(string id)
         {
             return await Get<T>($"{ResourcePath}/{id}");
         }
 
-        public async Task<T> Post(T entity)
+        public virtual async Task<T> Post(T entity)
         {
             var response = await PostRaw(entity);
             return await response.Content.ReadAsAsync<T>();
